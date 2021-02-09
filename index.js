@@ -13,6 +13,22 @@ var paddleX = (canvas.width-paddleWidth)/2;
 // usuario
 var rightPressed = false;
 var leftPressed = false;
+// ladrillos
+var brickRowCount = 3;
+var brickColumnCount = 5;
+var brickWidth = 75;
+var brickHeight = 20;
+var brickPadding = 10;
+var brickOffsetTop = 30;
+var brickOffsetLeft = 30;
+
+var bricks = [];
+for(c=0; c<brickColumnCount; c++) {
+    bricks[c] = [];
+    for(r=0; r<brickRowCount; r++) {
+        bricks[c][r] = { x: 0, y: 0 };
+    }
+}
 
 function drawBall() {
     ctx.beginPath();
