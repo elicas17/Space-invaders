@@ -2,6 +2,9 @@ $(() => {
     var canvas = document.getElementById("myCanvas");
     // var canvas =$("#myCanvas");
     var ctx = canvas.getContext("2d");
+    canvas.width="480";
+    canvas.height="320"
+    console.log("La resolución de tu pantalla es: " + screen.width + " x " + screen.height) 
     // ball
     var x = canvas.width / 2;
     var y = canvas.height - 30;
@@ -131,6 +134,10 @@ $(() => {
                         dy = -dy;
                         b.status--;
                         score = score + 0.5;
+                        if(score==15){
+                            alert('YOU WIN!! CONGRATULATIONS!!\n Score: '+score);
+                            document.location.reload();
+                        }
                     }
                 }
             }
@@ -145,16 +152,6 @@ $(() => {
         ctx.font = "16px Arial";
         ctx.fillStyle = "#0095DD";
         ctx.fillText("Lives: " + lives, canvas.width - 65, 20);
-    }
-    function drawVictory() {
-        ctx.font = "16px Arial";
-        ctx.fillStyle = "#0095DD";
-        ctx.fillText("YOU WIN. CONGRATULATIONS! Score: " + score, canvas.width / 2, canvas.height);
-    }
-    function drawLose() {
-        ctx.font = "16px Arial";
-        ctx.fillStyle = "#0095DD";
-        ctx.fillText("YOU WIN. CONGRATULATIONS! Score: " + score, canvas.width / 2, canvas.height);
     }
     function drawWelcome() {
         ctx.font = "30px Arial";
@@ -224,11 +221,16 @@ $(() => {
         window.cancelAnimationFrame(elId);
     });
 
-    $('#borrar').click(()=>{
-        $('#txt1').hide();
+    // NO ES DEL PROGRAMA
+    
+    $('#p1').click(()=>{
+        $('#txt1').hide(2000);
     });
-    $('#mostrar').click(()=>{
-        $('#txt1').attr("hidden",false);
+    $('#p2').click(()=>{
+        $('#txt2').hide(2000);
+    });
+    $('#todo').click(()=>{
+        $('p').hide(2000);
     });
 })
 
